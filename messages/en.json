@@ -1,0 +1,23 @@
+{
+  "Home": {
+    "status": "System_Status: Operator_01 // Online",
+    "eyebrow": "Software Developer // System Core Active",
+    "name": "Victor Alonso",
+    "role": "Full Stack Developer",
+    "description": "Building software, solving problems and turning ideas into products.",
+    "menuLabel": "Main navigation",
+    "footerNavigate": "[ ↑ ↓ ] Navigate",
+    "footerSelect": "[ Enter ] Select",
+    "footerStatus": "System Status: Online",
+    "footerLocation": "Loc: Brazil",
+    "languageButton": "Português",
+    "languageAria": "Change language to Portuguese",
+    "menu": {
+      "profile": "Profile",
+      "experience": "Experience",
+      "projects": "Projects",
+      "skills": "Skills",
+      "contact": "Contact"
+    }
+  }
+}

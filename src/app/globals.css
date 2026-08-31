@@ -69,6 +69,16 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.pt-28 {
+  padding-top: calc(var(--spacing) * 70);
+}
+
+@media (min-width: 48rem) {
+  .md\:pt-28 {
+    padding-top: calc(var(--spacing) * 70);
+  }
+}
+
 ::selection {
   background: var(--primary);
   color: var(--on-primary);
@@ -79,6 +89,40 @@ body {
     linear-gradient(to right, rgb(255 255 255 / 0.03) 1px, transparent 1px),
     linear-gradient(to bottom, rgb(255 255 255 / 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
+}
+
+.scanline-bg::after {
+  animation: scanline 5s linear infinite;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(173 198 255 / 0.12),
+    transparent
+  );
+  content: "";
+  height: 1px;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+@keyframes scanline {
+  from {
+    transform: translateY(-10vh);
+  }
+
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scanline-bg::after {
+    animation: none;
+    display: none;
+  }
 }
 
 .text-display-lg {
