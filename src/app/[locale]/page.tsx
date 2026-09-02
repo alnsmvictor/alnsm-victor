@@ -116,7 +116,13 @@ export default async function Home() {
             {menuItems.map((item, index) => (
               <li key={item.href}>
                 <a
-                  href={item.key === "experience" ? `/${locale}/experience` : item.href}
+                  href={
+                    item.key === "experience"
+                      ? `/${locale}/experience`
+                      : item.key === "skills"
+                        ? `/${locale}/skills`
+                        : item.href
+                  }
                   className={`group flex min-h-9 items-center justify-end gap-3 px-4 py-1.5 transition-all duration-500 ease-out hover:bg-[linear-gradient(90deg,transparent,rgba(173,198,255,0.08),transparent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${
                     index === 0 ? "text-primary opacity-100" : "opacity-55"
                   } hover:text-primary hover:opacity-100`}

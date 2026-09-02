@@ -4,7 +4,7 @@
     "eyebrow": "Software Developer // System Core Active",
     "name": "Victor Alonso",
     "role": "Desenvolvedor Full Stack",
-    "description": "Construindo software, resolvendo problemas e transformando ideias em produtos.",
+    "description": "Gosto de entender como as coisas funcionam. E mais ainda de descobrir por que n\u00e3o funcionam.",
     "menuLabel": "Navega\u00e7\u00e3o principal",
     "footerNavigate": "[ \u2191 \u2193 ] Navegar",
     "footerSelect": "[ Enter ] Selecionar",
@@ -25,33 +25,97 @@
     "title": "Experi\u00eancia",
     "subtitle": "// Career Log Acquired",
     "footer": "System Online // Experience Archive",
+    "modalEyebrow": "Encrypted Data Stream // Mission Intel",
+    "modalClose": "Fechar [Esc]",
+    "technicalStack": "Stack T\u00e9cnica",
+    "verified": "Verificada",
+    "accessLevel": "Access_Level",
     "items": [
       {
         "mission": "Mission 01",
-        "status": "Em progresso",
-        "title": "Desenvolvedor Full Stack",
-        "company": "Projeto atual",
-        "period": "2025 - Presente",
-        "description": "Desenvolvimento de interfaces responsivas, fluxos de aplica\u00e7\u00e3o e integra\u00e7\u00f5es front-end com foco em clareza, performance e manuten\u00e7\u00e3o.",
-        "stack": ["React", "Next.js", "TypeScript", "Tailwind CSS"]
+        "status": "Em andamento",
+        "title": "Desenvolvedor Jr.",
+        "company": "Applay",
+        "period": "2024 - Atual",
+        "description": "Desenvolvimento e manuten\u00e7\u00e3o de aplica\u00e7\u00f5es web e mobile para e-commerce e opera\u00e7\u00f5es digitais, atuando do front-end ao back-end na implementa\u00e7\u00e3o de novas funcionalidades e evolu\u00e7\u00e3o de sistemas existentes.",
+        "details": "Atua\u00e7\u00e3o com React, Next.js, Angular, Ionic, Node.js e TypeScript no desenvolvimento de interfaces, APIs REST e regras de neg\u00f3cio. Participa\u00e7\u00e3o em sistemas de pedidos, pagamentos, usu\u00e1rios e entregas, al\u00e9m de integra\u00e7\u00f5es com servi\u00e7os externos, roteiriza\u00e7\u00e3o e geolocaliza\u00e7\u00e3o. Investiga\u00e7\u00e3o de problemas entre front-end, APIs e MongoDB, com foco em manuten\u00e7\u00e3o, performance e qualidade do c\u00f3digo.",
+        "accessLevel": "Alpha_01",
+        "syncStatus": "Miss\u00e3o ativa. Dados sincronizados.",
+        "stack": [
+          "React",
+          "Next.js",
+          "Angular",
+          "Ionic",
+          "Node.js",
+          "TypeScript",
+          "MongoDB"
+        ]
       },
       {
         "mission": "Mission 02",
         "status": "Arquivada",
-        "title": "Desenvolvedor Front-end",
-        "company": "Experi\u00eancia anterior",
-        "period": "2023 - 2025",
-        "description": "Constru\u00e7\u00e3o de componentes reutiliz\u00e1veis, telas administrativas e experi\u00eancias web orientadas a usabilidade, acessibilidade e consist\u00eancia visual.",
-        "stack": ["JavaScript", "React", "CSS", "UI Components"]
+        "title": "Assistente de E-commerce",
+        "company": "Happy Kids Brinquedos",
+        "period": "2023 - 2024",
+        "description": "Atua\u00e7\u00e3o na opera\u00e7\u00e3o de e-commerce em marketplaces, acompanhando vendas, atendimento ao cliente e oportunidades para melhorar o desempenho dos canais digitais.",
+        "details": "Respons\u00e1vel pelo suporte \u00e0 opera\u00e7\u00e3o das contas em marketplaces, contato com clientes e an\u00e1lise de mercado. Cria\u00e7\u00e3o e acompanhamento de dashboards de vendas e rentabilidade para apoiar decis\u00f5es comerciais, identificar oportunidades e contribuir para o crescimento das vendas e do resultado da opera\u00e7\u00e3o.",
+        "accessLevel": "Beta_02",
+        "syncStatus": "Arquivo recuperado com sucesso.",
+        "stack": [
+          "E-commerce",
+          "Marketplaces",
+          "An\u00e1lise de Dados",
+          "Dashboards",
+          "Atendimento ao Cliente"
+        ]
+      }
+    ]
+  },
+  "Skills": {
+    "back": "Esc Voltar",
+    "title": "Tactical Inventory",
+    "subtitle": "// Loadout Modules Verified",
+    "footer": "System Online // Loadout Ready",
+    "categories": [
+      {
+        "label": "FRONTEND_MODULES",
+        "count": "06",
+        "skills": [
+          { "name": "React", "icon": "code" },
+          { "name": "Next.js", "icon": "layout" },
+          { "name": "Angular", "icon": "braces" },
+          { "name": "Ionic", "icon": "brush" },
+          { "name": "TypeScript", "icon": "code" },
+          { "name": "HTML/CSS", "icon": "layout" }
+        ]
       },
       {
-        "mission": "Mission 03",
-        "status": "Arquivada",
-        "title": "Estudos e projetos pr\u00e1ticos",
-        "company": "Forma\u00e7\u00e3o cont\u00ednua",
-        "period": "2022 - 2023",
-        "description": "Aprofundamento em fundamentos de desenvolvimento web, cria\u00e7\u00e3o de layouts responsivos e organiza\u00e7\u00e3o de projetos front-end.",
-        "stack": ["HTML", "CSS", "JavaScript", "Git"]
+        "label": "BACKEND_SYSTEMS",
+        "count": "03",
+        "skills": [
+          { "name": "Node.js", "icon": "server" },
+          { "name": "REST APIs", "icon": "terminal" },
+          { "name": "Integrations", "icon": "plug" }
+        ]
+      },
+      {
+        "label": "DATA_STORAGE",
+        "count": "03",
+        "skills": [
+          { "name": "MongoDB", "icon": "database" },
+          { "name": "SQL Server", "icon": "folder" },
+          { "name": "MySQL", "icon": "database" }
+        ]
+      },
+      {
+        "label": "TOOLS_SYSTEMS",
+        "count": "04",
+        "skills": [
+          { "name": "Git", "icon": "git" },
+          { "name": "GitHub", "icon": "github" },
+          { "name": "Linux", "icon": "linux" },
+          { "name": "Insomnia", "icon": "gauge" }
+        ]
       }
     ]
   }

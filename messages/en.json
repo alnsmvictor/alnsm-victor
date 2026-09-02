@@ -4,7 +4,7 @@
     "eyebrow": "Software Developer // System Core Active",
     "name": "Victor Alonso",
     "role": "Full Stack Developer",
-    "description": "Building software, solving problems and turning ideas into products.",
+    "description": "I like understanding how things work. Even more, I like finding out why they do not.",
     "menuLabel": "Main navigation",
     "footerNavigate": "[ \u2191 \u2193 ] Navigate",
     "footerSelect": "[ Enter ] Select",
@@ -25,33 +25,97 @@
     "title": "Experience",
     "subtitle": "// Career Log Acquired",
     "footer": "System Online // Experience Archive",
+    "modalEyebrow": "Encrypted Data Stream // Mission Intel",
+    "modalClose": "Close [Esc]",
+    "technicalStack": "Technical Stack",
+    "verified": "Verified",
+    "accessLevel": "Access_Level",
     "items": [
       {
         "mission": "Mission 01",
-        "status": "Ongoing",
-        "title": "Full Stack Developer",
-        "company": "Current project",
-        "period": "2025 - Present",
-        "description": "Development of responsive interfaces, application flows and front-end integrations focused on clarity, performance and maintainability.",
-        "stack": ["React", "Next.js", "TypeScript", "Tailwind CSS"]
+        "status": "In progress",
+        "title": "Junior Developer",
+        "company": "Applay",
+        "period": "2024 - Present",
+        "description": "Development and maintenance of web and mobile applications for e-commerce and digital operations, working from front-end to back-end on new features and existing system evolution.",
+        "details": "Work with React, Next.js, Angular, Ionic, Node.js and TypeScript on interface development, REST APIs and business rules. Participation in order, payment, user and delivery systems, as well as integrations with external services, routing and geolocation. Investigation of issues across front-end, APIs and MongoDB, focused on maintenance, performance and code quality.",
+        "accessLevel": "Alpha_01",
+        "syncStatus": "Active mission. Data synchronized.",
+        "stack": [
+          "React",
+          "Next.js",
+          "Angular",
+          "Ionic",
+          "Node.js",
+          "TypeScript",
+          "MongoDB"
+        ]
       },
       {
         "mission": "Mission 02",
         "status": "Archived",
-        "title": "Front-end Developer",
-        "company": "Previous experience",
-        "period": "2023 - 2025",
-        "description": "Development of reusable components, admin screens and web experiences guided by usability, accessibility and visual consistency.",
-        "stack": ["JavaScript", "React", "CSS", "UI Components"]
+        "title": "E-commerce Assistant",
+        "company": "Happy Kids Brinquedos",
+        "period": "2023 - 2024",
+        "description": "Work in marketplace e-commerce operations, tracking sales, customer support and opportunities to improve digital channel performance.",
+        "details": "Responsible for supporting marketplace account operations, customer communication and market analysis. Creation and monitoring of sales and profitability dashboards to support commercial decisions, identify opportunities and contribute to sales growth and operational results.",
+        "accessLevel": "Beta_02",
+        "syncStatus": "Archive recovered successfully.",
+        "stack": [
+          "E-commerce",
+          "Marketplaces",
+          "Data Analysis",
+          "Dashboards",
+          "Customer Support"
+        ]
+      }
+    ]
+  },
+  "Skills": {
+    "back": "Esc Back",
+    "title": "Tactical Inventory",
+    "subtitle": "// Loadout Modules Verified",
+    "footer": "System Online // Loadout Ready",
+    "categories": [
+      {
+        "label": "FRONTEND_MODULES",
+        "count": "06",
+        "skills": [
+          { "name": "React", "icon": "code" },
+          { "name": "Next.js", "icon": "layout" },
+          { "name": "Angular", "icon": "braces" },
+          { "name": "Ionic", "icon": "brush" },
+          { "name": "TypeScript", "icon": "code" },
+          { "name": "HTML/CSS", "icon": "layout" }
+        ]
       },
       {
-        "mission": "Mission 03",
-        "status": "Archived",
-        "title": "Studies and practical projects",
-        "company": "Continuous learning",
-        "period": "2022 - 2023",
-        "description": "Deepening core web development foundations, building responsive layouts and organizing front-end projects.",
-        "stack": ["HTML", "CSS", "JavaScript", "Git"]
+        "label": "BACKEND_SYSTEMS",
+        "count": "03",
+        "skills": [
+          { "name": "Node.js", "icon": "server" },
+          { "name": "REST APIs", "icon": "terminal" },
+          { "name": "Integrations", "icon": "plug" }
+        ]
+      },
+      {
+        "label": "DATA_STORAGE",
+        "count": "03",
+        "skills": [
+          { "name": "MongoDB", "icon": "database" },
+          { "name": "SQL Server", "icon": "folder" },
+          { "name": "MySQL", "icon": "database" }
+        ]
+      },
+      {
+        "label": "TOOLS_SYSTEMS",
+        "count": "04",
+        "skills": [
+          { "name": "Git", "icon": "git" },
+          { "name": "GitHub", "icon": "github" },
+          { "name": "Linux", "icon": "linux" },
+          { "name": "Insomnia", "icon": "gauge" }
+        ]
       }
     ]
   }
