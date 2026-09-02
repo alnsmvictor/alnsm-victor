@@ -1,16 +1,16 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import Link from "next/link";
+import styles from "./page.module.css";
 
 type IconName = "user" | "briefcase" | "terminal" | "bolt" | "mail";
 
 const menuItems: Array<{
-  key: "profile" | "experience" | "projects" | "skills" | "contact";
+  key: "profile" | "experience" | "skills" | "contact";
   href: string;
   icon: IconName;
 }> = [
   { key: "profile", href: "#profile", icon: "user" },
   { key: "experience", href: "#experience", icon: "briefcase" },
-  { key: "projects", href: "#projects", icon: "terminal" },
   { key: "skills", href: "#skills", icon: "bolt" },
   { key: "contact", href: "#contact", icon: "mail" },
 ];
@@ -70,7 +70,9 @@ export default async function Home() {
   const nextLocale = locale === "pt" ? "en" : "pt";
 
   return (
-    <main className="grid-bg scanline-bg relative flex min-h-screen overflow-hidden bg-background text-on-surface">
+    <main
+      className={`${styles.gridBg} ${styles.scanlineBg} relative flex min-h-screen overflow-hidden bg-background text-on-surface`}
+    >
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(19,19,19,0.18),rgba(19,19,19,0.72)),linear-gradient(180deg,rgba(19,19,19,0.18),rgba(19,19,19,0.95))]" />
 
       <Link
@@ -121,7 +123,9 @@ export default async function Home() {
                       ? `/${locale}/experience`
                       : item.key === "skills"
                         ? `/${locale}/skills`
-                        : item.href
+                        : item.key === "contact"
+                          ? `/${locale}/contact`
+                          : item.href
                   }
                   className={`group flex min-h-9 items-center justify-end gap-3 px-4 py-1.5 transition-all duration-500 ease-out hover:bg-[linear-gradient(90deg,transparent,rgba(173,198,255,0.08),transparent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${
                     index === 0 ? "text-primary opacity-100" : "opacity-55"

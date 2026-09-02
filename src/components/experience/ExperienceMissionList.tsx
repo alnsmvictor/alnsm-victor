@@ -15,8 +15,18 @@ export type ExperienceItem = {
   stack: string[];
 };
 
+function isExperienceItem(item: unknown): item is ExperienceItem {
+  return (
+    typeof item === "object" &&
+    item !== null &&
+    "stack" in item &&
+    Array.isArray(item.stack)
+  );
+}
+
 type ExperienceMissionListProps = {
   items: ExperienceItem[];
+  scrollClassName?: string;
   modalEyebrow: string;
   technicalStackLabel: string;
   modalCloseLabel: string;
@@ -26,6 +36,7 @@ type ExperienceMissionListProps = {
 
 export function ExperienceMissionList({
   items,
+  scrollClassName,
   modalEyebrow,
   technicalStackLabel,
   modalCloseLabel,
@@ -33,6 +44,9 @@ export function ExperienceMissionList({
   accessLevelLabel,
 }: ExperienceMissionListProps) {
   const [selectedItem, setSelectedItem] = useState<ExperienceItem | null>(null);
+  const experienceItems = items
+    .flatMap((item) => (Array.isArray(item) ? item : [item]))
+    .filter(isExperienceItem);
 
   useEffect(() => {
     if (!selectedItem) {
@@ -51,8 +65,10 @@ export function ExperienceMissionList({
 
   return (
     <>
-      <div className="hud-scrollbar flex h-full min-h-0 flex-col gap-4 overflow-y-auto pr-1 pb-24 lg:col-span-10 lg:pr-4">
-        {items.map((item, index) => (
+      <div
+        className={`${scrollClassName ?? ""} flex h-full min-h-0 flex-col gap-4 overflow-y-auto pr-1 pb-24 lg:col-span-10 lg:pr-4`}
+      >
+        {experienceItems.map((item, index) => (
           <button
             key={`${item.company}-${item.period}`}
             type="button"

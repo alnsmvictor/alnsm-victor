@@ -4,6 +4,7 @@ import {
   ExperienceMissionList,
   type ExperienceItem,
 } from "@/components/experience/ExperienceMissionList";
+import styles from "./page.module.css";
 
 function BackIcon() {
   return (
@@ -28,7 +29,9 @@ export default async function ExperiencePage() {
   const items = t.raw("items") as ExperienceItem[];
 
   return (
-    <main className="grid-bg scanline-bg relative flex h-screen flex-col overflow-hidden bg-background text-on-surface">
+    <main
+      className={`${styles.gridBg} ${styles.scanlineBg} relative flex h-screen flex-col overflow-hidden bg-background text-on-surface`}
+    >
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(19,19,19,0.74),rgba(19,19,19,0.96)),linear-gradient(90deg,rgba(173,198,255,0.04),transparent_38%)]" />
 
       <header className="relative z-30 flex w-full shrink-0 items-center justify-between bg-gradient-to-b from-background/90 to-transparent px-5 py-5 sm:px-8 md:px-12 lg:px-16">
@@ -65,6 +68,7 @@ export default async function ExperiencePage() {
 
           <ExperienceMissionList
             items={items}
+            scrollClassName={styles.hudScrollbar}
             modalEyebrow={t("modalEyebrow")}
             technicalStackLabel={t("technicalStack")}
             modalCloseLabel={t("modalClose")}

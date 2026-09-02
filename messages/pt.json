@@ -15,7 +15,6 @@
     "menu": {
       "profile": "Perfil",
       "experience": "Experi\u00eancia",
-      "projects": "Projetos",
       "skills": "Skills",
       "contact": "Contato"
     }
@@ -73,7 +72,7 @@
   },
   "Skills": {
     "back": "Esc Voltar",
-    "title": "Tactical Inventory",
+    "title": "Skills",
     "subtitle": "// Loadout Modules Verified",
     "footer": "System Online // Loadout Ready",
     "categories": [
@@ -116,6 +115,32 @@
           { "name": "Linux", "icon": "linux" },
           { "name": "Insomnia", "icon": "gauge" }
         ]
+      }
+    ]
+  },
+  "Contact": {
+    "back": "Esc Voltar",
+    "eyebrow": "Comms Channel Open",
+    "title": "Contato",
+    "subtitle": "Pronto para a pr\u00f3xima miss\u00e3o?",
+    "primaryAction": "Contact Me",
+    "primaryHref": "https://mail.google.com/mail/?view=cm&fs=1&to=victoralnsm@gmail.com",
+    "footer": "System Online // Comms Ready",
+    "channels": [
+      {
+        "label": "Email",
+        "href": "https://mail.google.com/mail/?view=cm&fs=1&to=victoralnsm@gmail.com",
+        "icon": "mail"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/victor-alonso-a32709309/",
+        "icon": "linkedin"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/alnsmvictor",
+        "icon": "github"
       }
     ]
   }

@@ -1,5 +1,6 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import Link from "next/link";
+import styles from "./page.module.css";
 
 type SkillIcon =
   | "code"
@@ -44,7 +45,7 @@ function BackIcon() {
 
 function SkillSlotIcon({ name }: { name: SkillIcon }) {
   const sharedProps = {
-    className: "h-7 w-7",
+    className: "h-10 w-10 md:h-12 md:w-12",
     viewBox: "0 0 24 24",
     fill: "none",
     stroke: "currentColor",
@@ -153,7 +154,9 @@ export default async function SkillsPage() {
   const categories = t.raw("categories") as SkillCategory[];
 
   return (
-    <main className="grid-bg scanline-bg relative flex h-screen flex-col overflow-hidden bg-background text-on-surface">
+    <main
+      className={`${styles.gridBg} ${styles.scanlineBg} relative flex h-screen flex-col overflow-hidden bg-background text-on-surface`}
+    >
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(19,19,19,0.72),rgba(19,19,19,0.96)),linear-gradient(90deg,rgba(173,198,255,0.04),transparent_38%)]" />
 
       <header className="relative z-30 flex w-full shrink-0 items-center justify-between bg-gradient-to-b from-background/90 to-transparent px-5 py-5 sm:px-8 md:px-12 lg:px-16">
@@ -180,8 +183,10 @@ export default async function SkillsPage() {
 
         <hr className="mb-8 shrink-0 border-outline-variant/40" />
 
-        <div className="hud-scrollbar min-h-0 flex-1 overflow-y-auto pr-1 pb-24 lg:pr-4">
-          <div className="grid gap-8 xl:grid-cols-2">
+        <div
+          className={`${styles.hudScrollbar} min-h-0 flex-1 overflow-y-auto pr-1 pb-24 lg:pr-4`}
+        >
+          <div className="flex min-h-full flex-col gap-10">
             {categories.map((category) => (
               <section key={category.label}>
                 <div className="mb-3 flex items-center justify-between">
@@ -193,11 +198,11 @@ export default async function SkillsPage() {
                   </span>
                 </div>
 
-                <ul className="grid grid-cols-2 gap-1 sm:grid-cols-3 md:grid-cols-4">
+                <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6">
                   {category.skills.map((skill, index) => (
                     <li key={skill.name}>
                       <div
-                        className={`group relative flex aspect-square min-h-28 flex-col justify-between border bg-surface-container-low/55 p-3 transition-colors duration-300 hover:border-primary hover:bg-primary/10 ${
+                        className={`group relative flex min-h-40 flex-col justify-between border bg-surface-container-low/55 p-4 transition-colors duration-300 hover:border-primary hover:bg-primary/10 md:min-h-44 ${
                           index === 0
                             ? "border-primary/70 text-primary"
                             : "border-outline-variant/50 text-on-surface-variant"
@@ -207,11 +212,11 @@ export default async function SkillsPage() {
                           {String(index + 1).padStart(2, "0")}
                         </span>
 
-                        <span className="mt-4 flex flex-1 items-center justify-center transition-[text-shadow] duration-300 group-hover:[text-shadow:0_0_14px_rgba(173,198,255,0.45)]">
+                        <span className="mt-6 flex flex-1 items-center justify-center opacity-90 transition-[filter,text-shadow,transform] duration-300 group-hover:scale-105 group-hover:opacity-100 group-hover:[filter:drop-shadow(0_0_12px_rgba(173,198,255,0.45))] group-hover:[text-shadow:0_0_14px_rgba(173,198,255,0.45)]">
                           <SkillSlotIcon name={skill.icon} />
                         </span>
 
-                        <span className="text-label-mono truncate text-center text-[0.65rem] leading-tight text-on-surface">
+                        <span className="text-label-mono text-center text-[0.65rem] leading-tight text-on-surface">
                           {skill.name}
                         </span>
                       </div>
