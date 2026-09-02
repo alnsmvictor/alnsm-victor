@@ -90,7 +90,7 @@ export default async function ContactPage() {
         </span>
       </header>
 
-      <section className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-start px-5 pb-4 pt-3 text-center sm:px-8 md:justify-center md:px-12 md:pb-24 md:pt-5 lg:px-16">
+      <section className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center px-5 pb-4 pt-3 text-center sm:px-8 md:px-12 md:pb-24 md:pt-5 lg:px-16">
         <p className="text-label-mono mb-3 text-primary md:mb-5">
           {t("eyebrow")}
         </p>

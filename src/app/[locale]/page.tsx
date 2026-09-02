@@ -17,7 +17,7 @@ const menuItems: Array<{
 
 function MenuIcon({ name }: { name: IconName }) {
   const sharedProps = {
-    className: "h-5 w-5",
+    className: "h-6 w-6 md:h-5 md:w-5",
     viewBox: "0 0 24 24",
     fill: "none",
     stroke: "currentColor",
@@ -85,26 +85,28 @@ export default async function Home() {
         <span className="opacity-70">{t("languageButton")}</span>
       </Link>
 
-      <section className="relative z-10 flex min-h-screen w-full flex-col px-5 pb-24 pt-20 sm:px-8 md:px-12 md:pt-[calc(var(--spacing)*70)] lg:px-16">
-        <div className="w-full max-w-5xl">
-          <div className="mb-5 flex w-fit items-center gap-3 border-l-2 border-primary bg-primary/10 px-4 py-2 shadow-[0_0_22px_rgba(173,198,255,0.06)]">
+      <section className="relative z-10 flex min-h-screen w-full flex-col px-5 pb-12 pt-32 sm:px-8 md:px-12 md:pb-24 md:pt-[calc(var(--spacing)*70)] lg:px-16">
+        <div className="mx-auto flex w-full max-w-5xl flex-col items-center text-center md:mx-0 md:items-start md:text-left">
+          <div className="mb-5 flex w-full max-w-sm items-center justify-center gap-3 border-l-2 border-primary bg-primary/10 px-4 py-2 text-left shadow-[0_0_22px_rgba(173,198,255,0.06)] md:w-fit md:max-w-none md:justify-start">
             <MenuIcon name="terminal" />
             <p className="text-label-mono text-primary">{t("status")}</p>
             <span className="h-1.5 w-1.5 animate-pulse bg-primary" />
           </div>
 
-          <h1 className="font-display text-[clamp(3.8rem,10vw,7.5rem)] font-black uppercase leading-[0.9] tracking-normal text-white">
+          <h1 className="font-display pt-20 text-[clamp(4.4rem,18vw,7.5rem)] font-black uppercase leading-[0.86] tracking-normal text-white sm:pt-24 md:pt-0 md:text-[clamp(3.8rem,10vw,7.5rem)]">
             {t("name")}
           </h1>
 
-          <p className="text-label-mono mt-5 text-primary">{t("eyebrow")}</p>
+          <p className="text-label-mono mt-5 max-w-sm text-center text-primary md:max-w-none md:text-left">
+            {t("eyebrow")}
+          </p>
 
-          <div className="relative mt-8 w-full max-w-3xl border border-outline-variant bg-surface/45 px-5 py-5 backdrop-blur-sm sm:px-7">
+          <div className="relative mt-8 hidden w-full max-w-sm border border-outline-variant bg-surface/45 px-5 py-4 text-left backdrop-blur-sm sm:max-w-2xl sm:px-7 md:block md:max-w-3xl md:py-5">
             <span className="absolute bottom-[-1px] left-[-1px] h-2 w-2 border-b border-l border-primary/60" />
             <span className="absolute bottom-[-1px] right-[-1px] h-2 w-2 border-b border-r border-primary/60" />
             <span className="absolute right-5 top-1/2 h-4 w-1 -translate-y-1/2 animate-pulse bg-primary" />
 
-            <p className="text-body-lg font-semibold text-on-surface-variant">
+            <p className="font-mono text-xl font-semibold leading-9 text-on-surface-variant">
               {t("description")}
             </p>
           </div>
@@ -112,9 +114,9 @@ export default async function Home() {
 
         <nav
           aria-label={t("menuLabel")}
-          className="mt-auto self-end pb-3 pt-16 text-right sm:min-w-80 md:min-w-96 lg:absolute lg:bottom-20 lg:right-10 lg:pt-0"
+          className="mt-auto self-end pb-3 pt-16 text-right sm:min-w-80 lg:absolute lg:bottom-20 lg:right-10 lg:pt-0"
         >
-          <ul className="flex flex-col items-end gap-1">
+          <ul className="flex flex-col items-end gap-2 md:gap-1">
             {menuItems.map((item, index) => (
               <li key={item.href}>
                 <a
@@ -127,11 +129,11 @@ export default async function Home() {
                           ? `/${locale}/contact`
                           : item.href
                   }
-                  className={`group flex min-h-9 items-center justify-end gap-3 px-4 py-1.5 transition-all duration-500 ease-out hover:bg-[linear-gradient(90deg,transparent,rgba(173,198,255,0.08),transparent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${
+                  className={`group flex min-h-11 items-center justify-end gap-4 px-4 py-1.5 transition-all duration-500 ease-out hover:bg-[linear-gradient(90deg,transparent,rgba(173,198,255,0.08),transparent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary md:min-h-9 md:gap-3 ${
                     index === 0 ? "text-primary opacity-100" : "opacity-55"
                   } hover:text-primary hover:opacity-100`}
                 >
-                  <span className="text-headline-md uppercase leading-none transition-[text-shadow] duration-500 group-hover:[text-shadow:0_0_12px_rgba(173,198,255,0.45)]">
+                  <span className="text-4xl font-bold uppercase leading-none transition-[text-shadow] duration-500 group-hover:[text-shadow:0_0_12px_rgba(173,198,255,0.45)] md:text-headline-md">
                     {t(`menu.${item.key}`)}
                   </span>
                   <span className="transition-[text-shadow] duration-500 group-hover:[text-shadow:0_0_12px_rgba(173,198,255,0.45)]">
