@@ -6,11 +6,11 @@
     "role": "Full Stack Developer",
     "description": "Building software, solving problems and turning ideas into products.",
     "menuLabel": "Main navigation",
-    "footerNavigate": "[ ↑ ↓ ] Navigate",
+    "footerNavigate": "[ \u2191 \u2193 ] Navigate",
     "footerSelect": "[ Enter ] Select",
     "footerStatus": "System Status: Online",
     "footerLocation": "Loc: Brazil",
-    "languageButton": "Português",
+    "languageButton": "Portugu\u00eas",
     "languageAria": "Change language to Portuguese",
     "menu": {
       "profile": "Profile",
@@ -19,5 +19,40 @@
       "skills": "Skills",
       "contact": "Contact"
     }
+  },
+  "Experience": {
+    "back": "Esc Back",
+    "title": "Experience",
+    "subtitle": "// Career Log Acquired",
+    "footer": "System Online // Experience Archive",
+    "items": [
+      {
+        "mission": "Mission 01",
+        "status": "Ongoing",
+        "title": "Full Stack Developer",
+        "company": "Current project",
+        "period": "2025 - Present",
+        "description": "Development of responsive interfaces, application flows and front-end integrations focused on clarity, performance and maintainability.",
+        "stack": ["React", "Next.js", "TypeScript", "Tailwind CSS"]
+      },
+      {
+        "mission": "Mission 02",
+        "status": "Archived",
+        "title": "Front-end Developer",
+        "company": "Previous experience",
+        "period": "2023 - 2025",
+        "description": "Development of reusable components, admin screens and web experiences guided by usability, accessibility and visual consistency.",
+        "stack": ["JavaScript", "React", "CSS", "UI Components"]
+      },
+      {
+        "mission": "Mission 03",
+        "status": "Archived",
+        "title": "Studies and practical projects",
+        "company": "Continuous learning",
+        "period": "2022 - 2023",
+        "description": "Deepening core web development foundations, building responsive layouts and organizing front-end projects.",
+        "stack": ["HTML", "CSS", "JavaScript", "Git"]
+      }
+    ]
   }
 }

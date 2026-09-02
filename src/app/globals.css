@@ -69,16 +69,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-.pt-28 {
-  padding-top: calc(var(--spacing) * 70);
-}
-
-@media (min-width: 48rem) {
-  .md\:pt-28 {
-    padding-top: calc(var(--spacing) * 70);
-  }
-}
-
 ::selection {
   background: var(--primary);
   color: var(--on-primary);

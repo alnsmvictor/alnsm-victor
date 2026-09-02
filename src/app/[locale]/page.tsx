@@ -1,5 +1,5 @@
 import { getLocale, getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 
 type IconName = "user" | "briefcase" | "terminal" | "bolt" | "mail";
 
@@ -74,8 +74,7 @@ export default async function Home() {
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(19,19,19,0.18),rgba(19,19,19,0.72)),linear-gradient(180deg,rgba(19,19,19,0.18),rgba(19,19,19,0.95))]" />
 
       <Link
-        href="/"
-        locale={nextLocale}
+        href={`/${nextLocale}`}
         aria-label={t("languageAria")}
         className="text-label-mono fixed right-5 top-5 z-30 flex min-h-11 items-center gap-3 border border-primary/50 bg-primary/10 px-4 text-primary shadow-[0_0_24px_rgba(173,198,255,0.12)] backdrop-blur-md transition-all duration-300 hover:bg-primary hover:text-on-primary hover:shadow-[0_0_36px_rgba(173,198,255,0.28)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary md:right-8 md:top-8"
       >
@@ -84,7 +83,7 @@ export default async function Home() {
         <span className="opacity-70">{t("languageButton")}</span>
       </Link>
 
-      <section className="relative z-10 flex min-h-screen w-full flex-col px-5 pb-24 pt-20 sm:px-8 md:px-12 md:pt-28 lg:px-16">
+      <section className="relative z-10 flex min-h-screen w-full flex-col px-5 pb-24 pt-20 sm:px-8 md:px-12 md:pt-[calc(var(--spacing)*70)] lg:px-16">
         <div className="w-full max-w-5xl">
           <div className="mb-5 flex w-fit items-center gap-3 border-l-2 border-primary bg-primary/10 px-4 py-2 shadow-[0_0_22px_rgba(173,198,255,0.06)]">
             <MenuIcon name="terminal" />
@@ -117,7 +116,7 @@ export default async function Home() {
             {menuItems.map((item, index) => (
               <li key={item.href}>
                 <a
-                  href={item.href}
+                  href={item.key === "experience" ? `/${locale}/experience` : item.href}
                   className={`group flex min-h-9 items-center justify-end gap-3 px-4 py-1.5 transition-all duration-500 ease-out hover:bg-[linear-gradient(90deg,transparent,rgba(173,198,255,0.08),transparent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${
                     index === 0 ? "text-primary opacity-100" : "opacity-55"
                   } hover:text-primary hover:opacity-100`}
