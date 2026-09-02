@@ -23,6 +23,11 @@ const jetBrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Victor Alonso",
   description: "Software developer portfolio",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export function generateStaticParams() {
