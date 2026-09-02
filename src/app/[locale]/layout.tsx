@@ -21,7 +21,7 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Developer Portfolio",
+  title: "Victor Alonso",
   description: "Software developer portfolio",
 };
 
