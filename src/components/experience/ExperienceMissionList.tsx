@@ -180,7 +180,7 @@ export function ExperienceMissionList({
           role="dialog"
           aria-modal="true"
           aria-labelledby="experience-modal-title"
-          className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-background/70 px-4 py-6 backdrop-blur-md sm:items-center sm:px-5 sm:py-8"
+          className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-background/70 px-4 py-6 backdrop-blur-md sm:items-center sm:px-5 sm:py-8"
           onClick={() => setSelectedItem(null)}
         >
           <div
@@ -200,7 +200,7 @@ export function ExperienceMissionList({
                 </p>
                 <h2
                   id="experience-modal-title"
-                  className="font-display text-[clamp(2rem,11vw,3rem)] font-black uppercase leading-none text-on-surface sm:text-headline-md"
+                  className="font-display max-w-full break-words text-[clamp(2rem,8vw,3rem)] font-black uppercase leading-[0.96] text-on-surface sm:text-[clamp(2.35rem,5vw,3.5rem)]"
                 >
                   {selectedItem.title}
                 </h2>
