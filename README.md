@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Victor Alonso Portfolio
 
-## Getting Started
+Portfólio front-end desenvolvido com Next.js, React e TypeScript. O projeto apresenta uma interface inspirada em menus táticos de videogame, com foco em navegação visual, internacionalização e uma experiência mais interativa do que um portfólio tradicional.
 
-First, run the development server:
+## Sobre o projeto
+
+A aplicação reúne informações profissionais em telas separadas para menu, experiências, habilidades e contato. O visual utiliza uma estética de sistema/HUD, com grid de fundo, scanline animada, cards interativos e navegação por teclado em pontos específicos da experiência.
+
+O projeto possui suporte a português e inglês usando `next-intl`.
+
+## Funcionalidades
+
+- Menu principal com navegação por teclado no desktop.
+- Troca de idioma entre português e inglês.
+- Página de experiências com cards detalhados em modal.
+- Navegação na experiência por setas no teclado.
+- Página de skills em formato de inventário.
+- Página de contato com links para email, LinkedIn e GitHub.
+- Layout responsivo para desktop e mobile.
+
+## Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- CSS Modules
+- next-intl
+- next/font
+- ESLint
+
+## Navegação por teclado
+
+No menu principal em desktop:
+
+```txt
+↑ / ↓   Alterna a opção selecionada
+Enter   Acessa a opção selecionada
+```
+
+Na página de experiências em desktop:
+
+```txt
+↑ / ↓   Alterna o card selecionado
+Enter   Abre o modal da experiência
+Esc     Fecha o modal ou volta para o menu
+```
+
+Nas páginas internas:
+
+```txt
+Esc     Volta para o menu principal
+```
+
+## Como rodar localmente
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Inicie o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```txt
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts
 
-## Learn More
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Executa o projeto em modo de desenvolvimento.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Gera a versão de produção.
 
-## Deploy on Vercel
+```bash
+npm run start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Executa a versão de produção após o build.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+```
+
+Executa a análise estática com ESLint.
+
+## Deploy
+
+O projeto está preparado para deploy na Vercel, aproveitando o suporte nativo da plataforma para aplicações Next.js.
