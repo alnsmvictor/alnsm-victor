@@ -4,6 +4,7 @@ import {
   ExperienceMissionList,
   type ExperienceItem,
 } from "@/components/experience/ExperienceMissionList";
+import { EscapeBack } from "@/components/navigation/EscapeBack";
 import styles from "./page.module.css";
 
 function BackIcon() {
@@ -32,6 +33,7 @@ export default async function ExperiencePage() {
     <main
       className={`${styles.gridBg} ${styles.scanlineBg} relative flex h-screen flex-col overflow-hidden bg-background text-on-surface`}
     >
+      <EscapeBack href={`/${locale}`} />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(19,19,19,0.74),rgba(19,19,19,0.96)),linear-gradient(90deg,rgba(173,198,255,0.04),transparent_38%)]" />
 
       <header className="relative z-30 flex w-full shrink-0 items-center justify-between bg-gradient-to-b from-background/90 to-transparent px-5 py-5 sm:px-8 md:px-12 lg:px-16">
@@ -62,8 +64,9 @@ export default async function ExperiencePage() {
 
         <div className="grid min-h-0 flex-1 grid-cols-1 gap-6 lg:grid-cols-12">
           <aside className="hidden pt-4 opacity-70 lg:col-span-2 lg:flex lg:flex-col lg:gap-3">
-            <p className="text-label-mono text-primary">[ W ] Scroll Up</p>
-            <p className="text-label-mono text-primary">[ S ] Scroll Down</p>
+            <p className="text-label-mono text-primary">[ ↑ ] Select Up</p>
+            <p className="text-label-mono text-primary">[ ↓ ] Select Down</p>
+            <p className="text-label-mono text-primary">[ Enter ] Open</p>
           </aside>
 
           <ExperienceMissionList

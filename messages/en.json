@@ -47,7 +47,9 @@
           "Ionic",
           "Node.js",
           "TypeScript",
-          "MongoDB"
+          "JavaScript",
+          "MongoDB",
+          "+"
         ]
       },
       {

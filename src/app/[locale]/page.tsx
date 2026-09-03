@@ -1,19 +1,9 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import Link from "next/link";
+import { HomeKeyboardMenu } from "@/components/navigation/HomeKeyboardMenu";
 import styles from "./page.module.css";
 
 type IconName = "user" | "briefcase" | "terminal" | "bolt" | "mail";
-
-const menuItems: Array<{
-  key: "profile" | "experience" | "skills" | "contact";
-  href: string;
-  icon: IconName;
-}> = [
-  { key: "profile", href: "#profile", icon: "user" },
-  { key: "experience", href: "#experience", icon: "briefcase" },
-  { key: "skills", href: "#skills", icon: "bolt" },
-  { key: "contact", href: "#contact", icon: "mail" },
-];
 
 function MenuIcon({ name }: { name: IconName }) {
   const sharedProps = {
@@ -68,6 +58,32 @@ export default async function Home() {
   const t = await getTranslations("Home");
   const locale = await getLocale();
   const nextLocale = locale === "pt" ? "en" : "pt";
+  const menuItems = [
+    {
+      key: "profile",
+      href: "#profile",
+      icon: "user" as const,
+      label: t("menu.profile"),
+    },
+    {
+      key: "experience",
+      href: `/${locale}/experience`,
+      icon: "briefcase" as const,
+      label: t("menu.experience"),
+    },
+    {
+      key: "skills",
+      href: `/${locale}/skills`,
+      icon: "bolt" as const,
+      label: t("menu.skills"),
+    },
+    {
+      key: "contact",
+      href: `/${locale}/contact`,
+      icon: "mail" as const,
+      label: t("menu.contact"),
+    },
+  ];
 
   return (
     <main
@@ -112,38 +128,7 @@ export default async function Home() {
           </div>
         </div>
 
-        <nav
-          aria-label={t("menuLabel")}
-          className="mt-auto self-end pb-3 pt-16 text-right sm:min-w-80 lg:absolute lg:bottom-20 lg:right-10 lg:pt-0"
-        >
-          <ul className="flex flex-col items-end gap-2 md:gap-1">
-            {menuItems.map((item, index) => (
-              <li key={item.href}>
-                <a
-                  href={
-                    item.key === "experience"
-                      ? `/${locale}/experience`
-                      : item.key === "skills"
-                        ? `/${locale}/skills`
-                        : item.key === "contact"
-                          ? `/${locale}/contact`
-                          : item.href
-                  }
-                  className={`group flex min-h-11 items-center justify-end gap-4 px-4 py-1.5 transition-all duration-500 ease-out hover:bg-[linear-gradient(90deg,transparent,rgba(173,198,255,0.08),transparent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary md:min-h-9 md:gap-3 ${
-                    index === 0 ? "text-primary opacity-100" : "opacity-55"
-                  } hover:text-primary hover:opacity-100`}
-                >
-                  <span className="text-4xl font-bold uppercase leading-none transition-[text-shadow] duration-500 group-hover:[text-shadow:0_0_12px_rgba(173,198,255,0.45)] md:text-headline-md">
-                    {t(`menu.${item.key}`)}
-                  </span>
-                  <span className="transition-[text-shadow] duration-500 group-hover:[text-shadow:0_0_12px_rgba(173,198,255,0.45)]">
-                    <MenuIcon name={item.icon} />
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <HomeKeyboardMenu ariaLabel={t("menuLabel")} items={menuItems} />
       </section>
 
       <footer className="fixed bottom-0 z-20 hidden w-full items-center justify-between border-t border-outline-variant bg-background/95 px-8 py-2 backdrop-blur-sm md:flex lg:px-12">

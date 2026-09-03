@@ -1,5 +1,6 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import Link from "next/link";
+import { EscapeBack } from "@/components/navigation/EscapeBack";
 import styles from "./page.module.css";
 
 type ContactIcon = "mail" | "linkedin" | "github";
@@ -74,6 +75,7 @@ export default async function ContactPage() {
     <main
       className={`${styles.gridBg} ${styles.scanlineBg} relative flex h-screen flex-col overflow-hidden bg-background text-on-surface`}
     >
+      <EscapeBack href={`/${locale}`} />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(173,198,255,0.08),transparent_22%),linear-gradient(180deg,rgba(19,19,19,0.72),rgba(19,19,19,0.98))]" />
 
       <header className="relative z-30 flex w-full shrink-0 items-center justify-between bg-gradient-to-b from-background/90 to-transparent px-5 py-4 sm:px-8 md:px-12 md:py-5 lg:px-16">

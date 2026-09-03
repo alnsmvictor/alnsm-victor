@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export type ExperienceItem = {
   mission: string;
@@ -44,24 +44,68 @@ export function ExperienceMissionList({
   accessLevelLabel,
 }: ExperienceMissionListProps) {
   const [selectedItem, setSelectedItem] = useState<ExperienceItem | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const cardRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const experienceItems = items
     .flatMap((item) => (Array.isArray(item) ? item : [item]))
     .filter(isExperienceItem);
 
   useEffect(() => {
-    if (!selectedItem) {
+    if (selectedIndex <= experienceItems.length - 1) {
       return;
     }
 
+    setSelectedIndex(Math.max(experienceItems.length - 1, 0));
+  }, [experienceItems.length, selectedIndex]);
+
+  useEffect(() => {
+    const selectedCard = cardRefs.current[selectedIndex];
+
+    selectedCard?.scrollIntoView({
+      block: "nearest",
+      behavior: "smooth",
+    });
+  }, [selectedIndex]);
+
+  useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
+      const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+
+      if (!isDesktop) {
+        return;
+      }
+
+      if (event.key === "Escape" && selectedItem) {
+        event.preventDefault();
         setSelectedItem(null);
+        return;
+      }
+
+      if (selectedItem || experienceItems.length === 0) {
+        return;
+      }
+
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        setSelectedIndex((currentIndex) =>
+          Math.min(currentIndex + 1, experienceItems.length - 1),
+        );
+      }
+
+      if (event.key === "ArrowUp") {
+        event.preventDefault();
+        setSelectedIndex((currentIndex) => Math.max(currentIndex - 1, 0));
+      }
+
+      if (event.key === "Enter") {
+        event.preventDefault();
+        setSelectedItem(experienceItems[selectedIndex]);
       }
     }
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [selectedItem]);
+  }, [experienceItems, selectedIndex, selectedItem]);
 
   return (
     <>
@@ -71,9 +115,20 @@ export function ExperienceMissionList({
         {experienceItems.map((item, index) => (
           <button
             key={`${item.company}-${item.period}`}
+            ref={(element) => {
+              cardRefs.current[index] = element;
+            }}
             type="button"
-            onClick={() => setSelectedItem(item)}
-            className="group relative min-h-64 w-full shrink-0 cursor-pointer overflow-hidden border border-outline-variant/40 bg-surface-container-low/55 p-6 text-left backdrop-blur-md transition-colors duration-300 hover:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:p-7"
+            onClick={() => {
+              setSelectedIndex(index);
+              setSelectedItem(item);
+            }}
+            onMouseEnter={() => setSelectedIndex(index)}
+            className={`group relative min-h-64 w-full shrink-0 cursor-pointer overflow-hidden border bg-surface-container-low/55 p-6 text-left backdrop-blur-md transition-colors duration-300 hover:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:p-7 ${
+              selectedIndex === index
+                ? "border-primary shadow-[0_0_42px_rgba(173,198,255,0.1)]"
+                : "border-outline-variant/40"
+            }`}
           >
             <span className="pointer-events-none absolute inset-0 -translate-y-full bg-primary/5 transition-transform duration-1000 ease-linear group-hover:translate-y-full" />
 
@@ -81,10 +136,12 @@ export function ExperienceMissionList({
               <span>
                 <span
                   className={`text-label-mono mb-3 flex items-center gap-2 ${
-                    index === 0 ? "text-primary" : "text-on-surface-variant"
+                    selectedIndex === index
+                      ? "text-primary"
+                      : "text-on-surface-variant"
                   }`}
                 >
-                  {index === 0 && (
+                  {selectedIndex === index && (
                     <span className="h-2 w-2 animate-pulse bg-primary" />
                   )}
                   {item.mission} // {item.status}
@@ -123,6 +180,7 @@ export function ExperienceMissionList({
 
       {selectedItem && (
         <div
+          data-keyboard-modal
           role="dialog"
           aria-modal="true"
           aria-labelledby="experience-modal-title"
