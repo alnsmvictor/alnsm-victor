@@ -180,11 +180,11 @@ export function ExperienceMissionList({
           role="dialog"
           aria-modal="true"
           aria-labelledby="experience-modal-title"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-background/70 px-5 py-8 backdrop-blur-md"
+          className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-background/70 px-4 py-6 backdrop-blur-md sm:items-center sm:px-5 sm:py-8"
           onClick={() => setSelectedItem(null)}
         >
           <div
-            className="relative w-full max-w-5xl border border-primary/45 bg-surface/80 p-6 shadow-[0_0_80px_rgba(173,198,255,0.12)] backdrop-blur-xl sm:p-8 lg:p-10"
+            className="relative w-full max-w-5xl border border-primary/45 bg-surface/90 p-5 shadow-[0_0_80px_rgba(173,198,255,0.12)] backdrop-blur-xl sm:p-8 lg:p-10"
             onClick={(event) => event.stopPropagation()}
           >
             <span className="absolute left-[-1px] top-[-1px] h-4 w-4 border-l-2 border-t-2 border-primary" />
@@ -192,19 +192,19 @@ export function ExperienceMissionList({
             <span className="absolute bottom-[-1px] left-[-1px] h-4 w-4 border-b-2 border-l-2 border-primary" />
             <span className="absolute bottom-[-1px] right-[-1px] h-4 w-4 border-b-2 border-r-2 border-primary" />
 
-            <div className="mb-4 flex items-start justify-between gap-4">
-              <div>
-                <p className="text-label-mono mb-2 flex items-center gap-2 text-primary">
+            <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div className="min-w-0 pr-10 sm:pr-0">
+                <p className="text-label-mono mb-2 flex max-w-[16rem] items-start gap-2 text-primary sm:max-w-none">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                   {modalEyebrow}
                 </p>
                 <h2
                   id="experience-modal-title"
-                  className="text-headline-md uppercase text-on-surface"
+                  className="font-display text-[clamp(2rem,11vw,3rem)] font-black uppercase leading-none text-on-surface sm:text-headline-md"
                 >
                   {selectedItem.title}
                 </h2>
-                <p className="text-headline-sm uppercase text-primary">
+                <p className="text-headline-sm mt-2 uppercase text-primary">
                   {selectedItem.company}
                 </p>
               </div>
@@ -212,9 +212,10 @@ export function ExperienceMissionList({
               <button
                 type="button"
                 onClick={() => setSelectedItem(null)}
-                className="text-label-mono flex items-center gap-2 text-on-surface-variant opacity-70 transition-colors hover:text-primary hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                aria-label={modalCloseLabel}
+                className="text-label-mono absolute right-5 top-5 flex min-h-10 items-center gap-2 text-on-surface-variant opacity-70 transition-colors hover:text-primary hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:static sm:min-h-0"
               >
-                {modalCloseLabel}
+                <span className="hidden sm:inline">{modalCloseLabel}</span>
                 <span aria-hidden="true" className="text-xl leading-none">
                   x
                 </span>
@@ -222,7 +223,7 @@ export function ExperienceMissionList({
             </div>
 
             <div className="border-l border-outline-variant pl-4">
-              <p className="text-body-md font-semibold text-on-surface-variant">
+              <p className="text-base font-semibold leading-7 text-on-surface-variant sm:text-body-md">
                 {selectedItem.details}
               </p>
             </div>
@@ -236,15 +237,15 @@ export function ExperienceMissionList({
                 {selectedItem.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="text-label-mono border border-primary/30 bg-primary/10 px-2 py-1 text-primary"
-                  >
-                    {tech}
-                  </span>
+                  className="text-label-mono border border-primary/30 bg-primary/10 px-2 py-1 text-primary"
+                >
+                  {tech}
+                </span>
                 ))}
               </div>
             </div>
 
-            <div className="mt-7 flex flex-col gap-3 border-t border-outline-variant/40 pt-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="mt-7 flex flex-col gap-2 border-t border-outline-variant/40 pt-4 sm:flex-row sm:items-center sm:justify-between">
               <span className="text-label-mono text-on-surface-variant opacity-60">
                 {accessLevelLabel}: {selectedItem.accessLevel}
               </span>
