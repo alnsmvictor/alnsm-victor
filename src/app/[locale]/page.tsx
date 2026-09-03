@@ -61,7 +61,7 @@ export default async function Home() {
   const menuItems = [
     {
       key: "profile",
-      href: "#profile",
+      href: `/${locale}`,
       icon: "user" as const,
       label: t("menu.profile"),
     },

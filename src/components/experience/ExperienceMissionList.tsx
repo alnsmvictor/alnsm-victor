@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 export type ExperienceItem = {
   mission: string;
@@ -46,17 +46,13 @@ export function ExperienceMissionList({
   const [selectedItem, setSelectedItem] = useState<ExperienceItem | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const cardRefs = useRef<Array<HTMLButtonElement | null>>([]);
-  const experienceItems = items
-    .flatMap((item) => (Array.isArray(item) ? item : [item]))
-    .filter(isExperienceItem);
-
-  useEffect(() => {
-    if (selectedIndex <= experienceItems.length - 1) {
-      return;
-    }
-
-    setSelectedIndex(Math.max(experienceItems.length - 1, 0));
-  }, [experienceItems.length, selectedIndex]);
+  const experienceItems = useMemo(
+    () =>
+      items
+        .flatMap((item) => (Array.isArray(item) ? item : [item]))
+        .filter(isExperienceItem),
+    [items],
+  );
 
   useEffect(() => {
     const selectedCard = cardRefs.current[selectedIndex];
@@ -144,7 +140,7 @@ export function ExperienceMissionList({
                   {selectedIndex === index && (
                     <span className="h-2 w-2 animate-pulse bg-primary" />
                   )}
-                  {item.mission} // {item.status}
+                  {item.mission} {"//"} {item.status}
                 </span>
 
                 <span className="text-headline-md block uppercase text-on-surface">
@@ -233,7 +229,7 @@ export function ExperienceMissionList({
 
             <div className="mt-5">
               <p className="text-label-mono mb-3 text-on-surface-variant">
-                {technicalStackLabel} // {verifiedLabel}
+                {technicalStackLabel} {"//"} {verifiedLabel}
               </p>
 
               <div className="flex flex-wrap gap-2">
